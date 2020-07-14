@@ -1,9 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <p>Hello</p>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 10px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #cc002b;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+.big {
+    position: relative;
+    height: 50%;
+    width: 80%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.img {
+    margin-top:10%;
+    width: 100%;
+    height: 100%;
+}
+</style>
 </head>
 <body>
-    <p>Hello</p>
+<div class="container-fluid">
+    <div class="big">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img" src="https://www.helpscout.com/images/helpu/2020/feb/live-chat-best-practices.png">
+            </div>
+            <div class="col-md-4">
+                <form action="/action_page.php">
+                <div>
+                    <h2>Register</h2>
+                    <p>Fill the form below to create a new account.</p>
+                    <hr>
+
+                    <label for="email"><b>User Name</b></label>
+                    <input type="text" placeholder="Enter User Name" name="email" id="email" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                    <hr>
+                    <div>
+                        <input type="checkbox" value checked>
+                        <span>By creating an account you agree to our Terms & Privacy.</span>
+                    </div>
+                    <button type="submit" class="registerbtn">Register</button>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
