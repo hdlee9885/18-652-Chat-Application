@@ -108,22 +108,22 @@ label {
                     <hr>
 
                     <label for="email"><b>User Name</b></label>
-                    <input type="text" placeholder="Enter User Name" name="email" id="email" required>
+                    <input type="text" placeholder="Please Enter User Name" name="email" id="email" required>
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+                    <input type="password" placeholder="Please Enter Password" name="psw" id="password" required>
 
                     <label for="psw-repeat"><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="password-repeat" required>
+                    <input type="password" placeholder="Please Repeat Password" name="psw-repeat" id="password-repeat" required>
                     <hr>
                     <div>
                         <input type="checkbox" value checked>
                         <span>By creating an account you agree to our Terms & Privacy.</span>
                     </div>
                     <div class="clearfix">
-                        <button type="button" class="cancelbtn" onclick="backtomain">Cancel</button>
+                        <button type="button" class="cancelbtn" onclick="back()">Cancel</button>
                         <script>
-                            function backtomain() {
+                            function back() {
                                 window.location.pathname = "/";
                             }
                         </script>
@@ -144,25 +144,28 @@ label {
             var username = $("#email").val();
             var password = $("#password").val();
             var password1 = $("#password-repeat").val();
+            console.log(username);
+            console.log(password);
             if (password !== password1) { 
                 $("#password").css("border","1px solid red");
                 $("#password-repeat").css("border","1px solid red");
             } else if (password === password1) {
-            var data = {"uname":username,"upwd":password};
-            $.ajax({ 
-                url: '/register',
-                type: 'post',
-                data: data,
-                success: function(data,status){ 
-                    if(status == 'success'){ 
-                        location.pathname = '/login';
+                var data = {"uname":username,"userpwd":password};
+                $.ajax({ 
+                    url: '/register',
+                    method: 'post',
+                    data: data,
+                    success: function(data,status){ 
+                        if(status == 'success'){ 
+                            location.pathname = '/login';
+                        }
+                    },
+                    error: function(data,err){ 
+                            console.log("Register error: ", err);
+                            location.pathname = '/register';
                     }
-                },
-                error: function(data,err){ 
-                        location.pathname = '/register';
-                }
-            }); 
-        }
+                }); 
+            }
         });
     });
 </script>

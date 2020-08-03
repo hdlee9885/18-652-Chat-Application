@@ -100,7 +100,7 @@ button:hover {
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" id="password" required>
             
-        <button type="submit">Login</button>
+        <button type="submit" class="loginbtn" id="login">Login</button>
         <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
@@ -120,13 +120,15 @@ button:hover {
 
 <script type="text/javascript">
     $(function(){ 
-        $("#login0").click(function(){ 
+        $("#login").click(function(){ 
             var username = $("#username").val();
             var password = $("#password").val();
-            var data = {"uname":username,"upwd":password};
+            console.log(username);
+            console.log(password);
+            var data = {"uname":username,"userpwd":password};
             $.ajax({ 
                 url:'/login',
-                type:'post',
+                method:'post',
                 data: data,
                 success: function(data,status){ 
                     if(status == 'success'){ 
