@@ -7,7 +7,7 @@ var logger = require('morgan');
 var multer = require('multer');
 // mongoose as object modeling tool
 var mongoose = require('mongoose');
-global.manipulate = require('./database/manipulate');
+//global.manipulate = require('./database/manipulate');
 const uri = "mongodb+srv://hdlee9885:Lihaosong2@cluster0-j9rvf.mongodb.net/nodedb?retryWrites=true&w=majority";
 mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log('MongoDB connected')).catch(err => console.log(err));
@@ -16,6 +16,8 @@ mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true})
 var db = mongoose.connection;
 // bind connection to error event
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+var userModel = require('./database/model');
 
 var session = require('express-session');
 var app = express();

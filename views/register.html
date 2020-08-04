@@ -149,6 +149,7 @@ label {
             if (password !== password1) { 
                 $("#password").css("border","1px solid red");
                 $("#password-repeat").css("border","1px solid red");
+                alert("Passwords don't match");
             } else if (password === password1) {
                 var data = {"uname":username,"userpwd":password};
                 $.ajax({ 

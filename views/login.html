@@ -2,6 +2,10 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
 <style>
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -86,7 +90,7 @@ button:hover {
   }
 } */
 </style>
-</head>
+
 <body>
 <div class="outer">
     <h2>Login</h2>
@@ -100,7 +104,12 @@ button:hover {
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" id="password" required>
             
-        <button type="submit" class="loginbtn" id="login">Login</button>
+        <button type="submit" class="loginbtn" id="loginbtn" onclick="button()">Login</button>
+        <script>
+            function button() {
+                alert("button was clicked");
+            }
+        </script>
         <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
@@ -119,8 +128,8 @@ button:hover {
 </div>
 
 <script type="text/javascript">
-    $(function(){ 
-        $("#login").click(function(){ 
+    $(function login(){ 
+        $("#loginbtn").click(function(){ 
             var username = $("#username").val();
             var password = $("#password").val();
             console.log(username);
@@ -137,6 +146,7 @@ button:hover {
                 },
                 error: function(data,status){ 
                     if(status == 'error'){ 
+                        console.log("Login error: ", status);
                         location.pathname = '/login';
                     }
                 }
