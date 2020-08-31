@@ -1,11 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <p>Hello</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" >
+    <title>ChatRoom</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css">
 </head>
 <body>
-    <p>Hello! <%- user.name %></p>
-    <p>welcome to home</p>
-    <p><a href="/">logoff </a></p>
+    <div class="tip">
+        <h4 style="text-align: center" id="username_place">Welcome <span><%- user.name %></span> to the chatroom, start chatting! </h4>
+        <div>
+            <p style="text-align: center">Date/Time: <span id="datetime"></span></p>
+        </div>
+        <script>
+            var dt = new Date();
+            document.getElementById("datetime").innerHTML = dt.toLocaleString();
+        </script>
+        <p style="text-align: right">You can <a href="/">logoff</a> here</p>
+
+    </div>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <!-- User List -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-pushpin"></span> &nbsp; Online Users
+                    </div>
+                    <div class="panel-body list-body">
+                        <table class="table user-list">
+                        </table>
+                    </div>
+                    <div class="panel-footer" id="list-count">
+                    <!-- Online people: num of people-->
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Chat Message -->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-leaf"></span> Chat  &#127378;
+                        <button class="btn" onclick="showChatHistory()">See history</button>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <div class="row">
+                                    <table class="table table-hover chat-list">
+                                        <tr><td>2014/12/12</td><td>hehehhehehehheh</td></tr>
+                                        <tr><td>2014/12/12</td><td>afadsfasdfasdf</td></tr>
+                                        <tr><td>2014/12/12</td><td>hehsssssehhehehehheh</td></tr>
+                                    </table>
+                            </div>
+                        </div>
+                    
+                        <div class="modal-body msg-history">
+                            <div class="row">
+                                <table class="history">
+                                </table>
+                            </div>
+                        </div>
+                        <div class="msg-list"></div>
+                    </div>
+                </div>
+
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control" id="msgIn" placeholder="Enter Message Here">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" onclick="sendMessage()">Send Message
+                            <span class="glyphicon glyphicon-send"></span>
+                        </button>
+                        <!-- <script>
+                            function sendMessage() {
+                                alert("button was clicked");
+                            }
+                        </script> -->
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="javascripts/client.js"></script>
 </body>
 </html>

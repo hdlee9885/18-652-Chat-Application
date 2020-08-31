@@ -2,9 +2,11 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+
 </head>
 <style>
 body {
@@ -66,11 +68,6 @@ button:hover {
   padding: 16px;
 }
 
-/* span.psw {
-  float: right;
-  padding-top: 16px;
-} */
-
 .outer {
     position: relative;
     height: 50%;
@@ -79,16 +76,6 @@ button:hover {
     margin-top: 10%;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-/* @media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-} */
 </style>
 
 <body>
@@ -105,11 +92,11 @@ button:hover {
         <input type="password" placeholder="Enter Password" name="psw" id="password" required>
             
         <button type="submit" class="loginbtn" id="loginbtn" onclick="button()">Login</button>
-        <script>
+        <!-- <script>
             function button() {
-                alert("button was clicked");
+                alert('You just logged in');
             }
-        </script>
+        </script> -->
         <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
@@ -126,6 +113,7 @@ button:hover {
     </div>
     </form>
 </div>
+<script type="text/javascript" src="javascripts/client.js"></script>
 
 <script type="text/javascript">
     $(function login(){ 

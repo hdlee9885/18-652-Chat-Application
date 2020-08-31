@@ -32,12 +32,24 @@ router.post('/login', function(req,res) {
         return;
       } else { // found and match
         req.session.user = userinfo; // session has current user
+        userGoOnline(username);
         res.sendStatus(200);
         //res.redirect("/home");
       }
     }
   });
 });
+
+function userGoOnline(userName) {
+  var user = mongoose.model('Users');
+  user.update({name:userName},{$set: {status: 'online'}},function(err,doc){ 
+		if(err){ 
+			console.log(err);
+		}else{ 
+			console.log(userName+ " is online");
+		}
+	});
+}
 
 router.get('/register', function(req, res) {
   console.log(res);
@@ -99,7 +111,19 @@ router.get('/home', function(req, res) {
 router.get('/logout', function(req, res) { // if arrived at logout
   req.session.user = null; // clear user
   res.session.error = null; // clear error
+  userGoOffline(name);
   res.redirect("/"); // redirect to zero state page
 });
+
+function userGoOffline(userName) {
+  var user = mongoose.model('Users');
+  user.update({name:userName},{$set: {status: 'offline'}},function(err,doc){ 
+		if(err){ 
+			console.log(err);
+		}else{ 
+			console.log(userName+ " is offline");
+		}
+	});
+}
 
 module.exports = router;
