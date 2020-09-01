@@ -76,6 +76,19 @@ button:hover {
     margin-top: 10%;
 }
 
+@media (min-width: 992px) {
+    .container {
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        /* width: 750px; */
+        width: auto;
+    }
+}
+
 </style>
 
 <body>
@@ -91,7 +104,7 @@ button:hover {
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" id="password" required>
             
-        <button type="submit" class="loginbtn" id="loginbtn" onclick="button()">Login</button>
+        <button type="submit" class="loginbtn" id="loginbtn">Login</button>
         <!-- <script>
             function button() {
                 alert('You just logged in');

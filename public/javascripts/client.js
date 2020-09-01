@@ -16,39 +16,39 @@ function sendMessage() {
     var message = $("#msgIn").val();
     console.log(message);
     if (message == "") return;
-    socket.emit("say",message);
+    socket.emit("send",message);
     $("#msgIn").val("");  
     console.log("Clicked");
 }
 
-socket.on("user_say",function(name,time,content){ // show chat message
-	console.log("user: "+name + "say: "+content);
-	var msg_list = $(".msg-list");
+socket.on("user_send",function(name,message,time){ // show chat message
+    console.log("user: "+name + "send: "+message);
+	var msg_list = $(".message-list");
 	msg_list.append( 
-		'<div class="msg-wrap"><div class="msg-info"><span class="msg-name">'+name+' </span>'+
-		'<span class="msg-time">'+time+' </span><span class="glyphicon glyphicon-bullhorn"></span></div>'+
-		'<div class="msg-content">'+content+'</div></div>'
+		'<div class="message-wrap"><div class="message-info"><span class="message-name">'+name+' </span>'+
+		'<span class="message-time">'+time+' </span><span class="glyphicon glyphicon-bullhorn"></span></div>'+
+		'<div class="message-content">'+message+'</div></div>'
 	);
 	var len = msg_list.height();
 	msg_list.scrollTop(len);
 });
 
 socket.on("userIn",function(data){ 
-	var msg_list = $(".msg-list");
+	var msg_list = $(".message-list");
 		msg_list.append( 
-		'<div class="msg-wrap"><div class="msg-content msg-system">'+data+'</div></div>'
+		'<div class="message-wrap"><div class="message-content message-system">'+data+'</div></div>'
 	);
 });
 socket.on("userOut",function(data){ 
-	var msg_list = $(".msg-list");
+	var msg_list = $(".message-list");
 		msg_list.append( 
-		'<div class="msg-wrap"><div class="msg-content msg-system">'+data+'</div></div>'
+		'<div class="message-wrap"><div class="message-content message-system">'+data+'</div></div>'
 	);
 });
 socket.on("system",function(data){ 
-	var msg_list = $(".msg-list");
+	var msg_list = $(".message-list");
 		msg_list.append( 
-		'<div class="msg-wrap"><div class="msg-content msg-welcome">'+data+'</div></div>'
+		'<div class="message-wrap"><div class="message-content message-welcome">'+data+'</div></div>'
 	);
 });
 
@@ -73,9 +73,13 @@ function showChatHistory(){
 }
 
 socket.on("getChatHistoryDone",function(data){   // get chat history from database
-	$(".chat-list").html("");
-	$(".chat-list").append("<tr class='row'><th class='col-sm-1'> ID </th><th class='col-sm-4'> Time </th><th class='col-sm-8'> Content </th></tr>");
+    var history_list = $(".message-history");
+    history_list.html("");
+    // history_list.append("<tr class='row'><th class='col-sm-1'> ID </th><th class='col-sm-4'> Time </th><th class='col-sm-8'> Content </th></tr>");
 	for(var i=0;i<data.length;i++){ 
-		$(".chat-list").append("<tr class='row'><td class='col-sm-1'>"+(i+1)+"</td><td class='col-sm-3'>"+data[i].timestamps+"</td><td class='col-sm-8'>"+data[i].message+"</td></tr>");
+        // history_list.append("<tr class='row'><td class='col-sm-1'>"+(i+1)+"</td><td class='col-sm-3'>"+data[i].timestamps+"</td><td class='col-sm-8'>"+data[i].message+"</td></tr>");
+        history_list.append('<div class="message-container"><div class="message-info"><span class="message-name">'+data[i].sender+' </span>'+
+		'<span class="message-time">'+data[i].timestamps+' </span><span class="glyphicon glyphicon-bullhorn"></span></div>'+
+		'<div class="message-content">'+data[i].message+'</div></div>');
 	}
 });

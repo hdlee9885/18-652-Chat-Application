@@ -14,7 +14,7 @@ const uri = "mongodb+srv://hdlee9885:Lihaosong2@cluster0-j9rvf.mongodb.net/noded
 mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log('MongoDB connected')).catch(err => console.log(err));
 
-//Get the default connection
+// Get the default connection
 var db = mongoose.connection;
 // bind connection to error event
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -117,13 +117,13 @@ function saveChatHistory(name, history, time) {
 
 function getOnlineUser(s){
     var user = mongoose.model('Users');
-    user.find({status: "online"},function(err,docs){ 
+    user.find({status: "online"},function(err,status){ 
         if(err){ 
             console.log(err);
         }else{ 
-            console.log('users list --default: ' + docs);
-            s.broadcast.emit('user_list',docs); // update user list
-            s.emit('user_list',docs);
+            console.log('users list --default: ' + status);
+            s.broadcast.emit('user_list',status); // update user list
+            s.emit('user_list',status);
         }
     });
 }
@@ -144,25 +144,25 @@ socket.on('connection', function(socket) {
     socket.emit("system","Chatroom@: Welcome!"); 
 
     // group chat
-    socket.on('say',function(content) {
-      console.log("server: "+ client.name + " typed : " + content);
+    socket.on('send',function(message) {
+      console.log("server: "+ client.name + " typed : " + message);
       // store info in database
       var time = getTime();
-      socket.emit('user_say',client.name,time,content);
-      socket.broadcast.emit('user_say',client.name,time,content);
-      saveChatHistory(client.name,content,time);   // save chat history
+      socket.emit('user_send',client.name,message,time);
+      socket.broadcast.emit('user_send',client.name,message,time);
+      saveChatHistory(client.name,message,time);   // save chat history
     });
 
     socket.on('getChatHistory',function(username){
       console.log("searching for chat history");
       var history = mongoose.model('Chat');
-      history.find(function(err,docs){ 
+      history.find(function(err,chat){ 
 			if(err){ 
 				console.log(err);
 			}else{
-				socket.emit("getChatHistoryDone",docs);
+				socket.emit("getChatHistoryDone",chat);
         console.log(username + " is looking for chat history");
-        console.log(docs);
+        console.log(chat);
 			}
 		});
     });

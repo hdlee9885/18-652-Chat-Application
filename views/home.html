@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" >
     <title>ChatRoom</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     <div class="tip">
-        <h4 style="text-align: center" id="username_place">Welcome <span><%- user.name %></span> to the chatroom, start chatting! </h4>
+        <h4 style="text-align: center" id="username_place">Welcome <span><%- user.name %></span> to the chat room, start chatting! </h4>
         <div>
             <p style="text-align: center">Date/Time: <span id="datetime"></span></p>
         </div>
@@ -18,7 +22,10 @@
             var dt = new Date();
             document.getElementById("datetime").innerHTML = dt.toLocaleString();
         </script>
-        <p style="text-align: right">You can <a href="/">logoff</a> here</p>
+        <p style="text-align: right"><i class='fas fa-chevron-right'></i>
+            You can <a href="/">logoff</a> here
+            <i class='fas fa-chevron-left'></i>
+        </p>
 
     </div>
     <div class="container-fluid">
@@ -30,7 +37,7 @@
                     <div class="panel-heading">
                         <span class="glyphicon glyphicon-pushpin"></span> &nbsp; Online Users
                     </div>
-                    <div class="panel-body list-body">
+                    <div class="panel-body user-list-body">
                         <table class="table user-list">
                         </table>
                     </div>
@@ -45,34 +52,21 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <span class="glyphicon glyphicon-leaf"></span> Chat  &#127378;
-                        <button class="btn" onclick="showChatHistory()">See history</button>
+                        <button class="history-btn" id="history-btn" onclick="showChatHistory()">Show History 
+                            <i class="fa fa-clock-o" style="font-size:20px"></i>
+                        </button>
                     </div>
                     <div class="panel-body">
-                        <div>
-                            <div class="row">
-                                    <table class="table table-hover chat-list">
-                                        <tr><td>2014/12/12</td><td>hehehhehehehheh</td></tr>
-                                        <tr><td>2014/12/12</td><td>afadsfasdfasdf</td></tr>
-                                        <tr><td>2014/12/12</td><td>hehsssssehhehehehheh</td></tr>
-                                    </table>
-                            </div>
-                        </div>
-                    
-                        <div class="modal-body msg-history">
-                            <div class="row">
-                                <table class="history">
-                                </table>
-                            </div>
-                        </div>
-                        <div class="msg-list"></div>
+                        <div class="message-history"></div>
+                        <div class="message-list"></div>
                     </div>
                 </div>
 
                 <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" id="msgIn" placeholder="Enter Message Here">
+                    <input type="text" class="form-control" id="msgIn" placeholder="Enter Message Here...">
                     <span class="input-group-btn">
                         <button class="btn btn-primary" onclick="sendMessage()">Send Message
-                            <span class="glyphicon glyphicon-send"></span>
+                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
                         </button>
                         <!-- <script>
                             function sendMessage() {
