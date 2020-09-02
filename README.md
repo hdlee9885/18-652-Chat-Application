@@ -18,9 +18,9 @@ This repository is a programming assignment for 18-652 Foundations of Software E
 
 * Client side: HTML, CSS, JavaScript (JS).
 
-⋅⋅⋅ + Bootstrap
-⋅⋅⋅ + jQuery
-⋅⋅⋅ + font-awesome: fancy icons
+⋅⋅⋅+ Bootstrap⋅⋅
+⋅⋅⋅+ jQuery⋅⋅
+⋅⋅⋅+ font-awesome: fancy icons
 
 * Server side: Node.js and Express.js web development framework with packages
 
