@@ -16,9 +16,9 @@ This repository is a programming assignment for 18-652 Foundations of Software E
 
 Following development stacks are used in this application
 * Client side: HTML, CSS, JavaScript (JS).
-+ Bootstrap
-+ jQuery
-+ font-awesome: fancy icons
+...+ Bootstrap
+...+ jQuery
+...+ font-awesome: fancy icons
 
 * Server side: Node.js with Express.js web development framework
 
@@ -27,6 +27,7 @@ Following development stacks are used in this application
 Database schema
 1. User credential information
 | Field | Data Type | Description |
+|-------|-----------|--------------|
 | Name  | String    | required, store user name |
 | Password | String | required, store user password |
 | Status | String | default is offline |
