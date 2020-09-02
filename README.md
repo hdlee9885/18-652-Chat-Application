@@ -34,6 +34,7 @@ Database schema
 | Status        | String        | Default is offline, switch to online when user logs in |
 
 2. Message information
+
 | Field         | Data Type     | Description |
 | :-----------: |:-------------:| :--------------:|
 | Message       | String        | Store user messages |
