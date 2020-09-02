@@ -141,7 +141,7 @@ socket.on('connection', function(socket) {
         console.log("client name: " + client.name); // print client on console
       	socket.broadcast.emit("userIn","We have a new user joining in called" + client.name);
     });
-    socket.emit("system","Chatroom@: Welcome!"); 
+    socket.emit("system","Welcome new user!"); 
 
     // group chat
     socket.on('send',function(message) {

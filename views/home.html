@@ -12,16 +12,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
+<script>
+    // var dt = new Date();
+    // document.getElementById("datetime").innerHTML = dt.toLocaleString();
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('datatime').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
 <body>
     <div class="tip">
         <h4 style="text-align: center" id="username_place">Welcome <span><%- user.name %></span> to the chat room, start chatting! </h4>
-        <div>
+        <div >
             <p style="text-align: center">Date/Time: <span id="datetime"></span></p>
         </div>
         <script>
             var dt = new Date();
             document.getElementById("datetime").innerHTML = dt.toLocaleString();
         </script>
+        
         <p style="text-align: right"><i class='fas fa-chevron-right'></i>
             You can <a href="/">logoff</a> here
             <i class='fas fa-chevron-left'></i>
@@ -35,7 +55,7 @@
                 <!-- User List -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <span class="glyphicon glyphicon-pushpin"></span> &nbsp; Online Users
+                        <i class="fa fa-envelope-open-o" style="font-size: 20px;"></i>   Online Users
                     </div>
                     <div class="panel-body user-list-body">
                         <table class="table user-list">
@@ -51,13 +71,15 @@
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <span class="glyphicon glyphicon-leaf"></span> Chat  &#127378;
+                        <i class="fa fa-comments-o" style="font-size:20px"></i>  Chat  &#127378;
                         <button class="history-btn" id="history-btn" onclick="showChatHistory()">Show History 
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
                         </button>
+                        <span>
+                            <i class="fa fa-clock-o" style="font-size:20px;float: right;"></i>
+                        </span>
                     </div>
                     <div class="panel-body">
-                        <div class="message-history"></div>
+                        <div class="message-history" id="message-history"></div>
                         <div class="message-list"></div>
                     </div>
                 </div>
