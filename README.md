@@ -26,23 +26,19 @@ Following development stacks are used in this application
 
 Database schema
 1. User credential information
-| Field | Data Type | Description |
-|-------|-----------|--------------|
-| Name  | String    | required, store user name |
-| Password | String | required, store user password |
-| Status | String | default is offline |
 
 | Field         | Data Type     | Description  |
-| ------------- |:-------------:| ---------------:|
-| Name          | String        | required, store user name |
-| Password      | String        | required, store user password |
-| Status        | String        | default is offline, switch to online when user logs in |
+| :-----------: |:-------------:| :--------------:|
+| Name          | String        | Required, store user name |
+| Password      | String        | Required, store user password |
+| Status        | String        | Default is offline, switch to online when user logs in |
 
 2. Message information
-| Field | Data Type | Description |
-| Message  | String    | store user messages |
-| Sender | String | identify who sent the message|
-| Timestamps | String | store message sent time |
+| Field         | Data Type     | Description |
+| :-----------: |:-------------:| :--------------:|
+| Message       | String        | Store user messages |
+| Sender        | String        | Identify who sent the message|
+| Timestamps    | String        | Store message sent time |
 
 
 
