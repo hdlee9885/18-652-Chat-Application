@@ -1,8 +1,8 @@
-# 18-652-Chat-Application
+## 18-652-Chat-Application
 
 This repository is a programming assignment for 18-652 Foundations of Software Engineering before the start of the semester to give students a context to demonstrate proficiency in a modern programming language, and to make sure that students are ready to tackle the course project. 
 
-## Main Functions
+### Main Functionalities
 
 1. New users can enter the site and register with their user names and passwords.
 2. A registered user can sign in with the registered user name and password.
@@ -12,18 +12,21 @@ This repository is a programming assignment for 18-652 Foundations of Software E
 6. Messages, user credentials, and time stamps are stored in the database (MongoDB here).
 7. Users can click on log off button to go offline.
 
-## Built with
+### Built with
 
 #### Following development stacks are used in this application
 
-* Client side: HTML, CSS, JavaScript (JS).
+- Client side: HTML, CSS, JavaScript (JS).
 
-⋅⋅⋅+ Bootstrap⋅⋅
-⋅⋅⋅+ jQuery⋅⋅
-⋅⋅⋅+ font-awesome: fancy icons
+  - Bootstrap
+  - jQuery
+  - font-awesome: fancy icons
 
-* Server side: Node.js and Express.js web development framework with packages
+- Server side: Node.js and Express.js web development framework with packages:
 
+  - express-session: used for checking whether the session value is empty when logging in
+  - body-parser: parse the http request sent by client
+  - socket.io: enables real-time and event based communication
 
 * Database: MongoDB with mongoose (a object data modeling library for MongoDB and Node.js)
 
@@ -44,7 +47,19 @@ This repository is a programming assignment for 18-652 Foundations of Software E
 | Sender        | String        | Identify who sent the message|
 | Timestamps    | String        | Store message sent time |
 
+### Features to Add
+- Hash users password instead of plain text password
+- Private chat
+- Allow users to choose users to group chat
+- Quick messages from a dropdown
 
+
+### Reference
+
+[Node.js Documentation](https://nodejs.org/en/)
+[Express.js Documentation](https://expressjs.com/)
+[Socket.io Documentation](https://socket.io/)
+[npm Documentation](https://www.npmjs.com/)
 
 
 
