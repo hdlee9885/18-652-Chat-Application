@@ -32,6 +32,12 @@ Database schema
 | Password | String | required, store user password |
 | Status | String | default is offline |
 
+| Field         | Data Type     | Description  |
+| ------------- |:-------------:| ---------------:|
+| Name          | String        | required, store user name |
+| Password      | String        | required, store user password |
+| Status        | String        | default is offline, switch to online when user logs in |
+
 2. Message information
 | Field | Data Type | Description |
 | Message  | String    | store user messages |
