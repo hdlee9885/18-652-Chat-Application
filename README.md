@@ -57,8 +57,11 @@ This repository is a programming assignment for 18-652 Foundations of Software E
 ### Reference
 
 [Node.js Documentation](https://nodejs.org/en/)
+
 [Express.js Documentation](https://expressjs.com/)
+
 [Socket.io Documentation](https://socket.io/)
+
 [npm Documentation](https://www.npmjs.com/)
 
 
