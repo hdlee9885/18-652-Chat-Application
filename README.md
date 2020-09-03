@@ -12,6 +12,14 @@ This repository is a programming assignment for 18-652 Foundations of Software E
 6. Messages, user credentials, and time stamps are stored in the database (MongoDB here).
 7. Users can click on log off button to go offline.
 
+### Quick Start
+
+To start the application:
+
+1. Clone the repo and in the terminal run ```npm install```
+2. In the terminal, run ```npm start```
+3. Then open up browser go to http://localhost:8000/home
+
 ### Built with
 
 #### Following development stacks are used in this application
@@ -63,6 +71,13 @@ This repository is a programming assignment for 18-652 Foundations of Software E
 [Socket.io Documentation](https://socket.io/)
 
 [npm Documentation](https://www.npmjs.com/)
+
+[Online Example Reference 1](https://github.com/bradtraversy/chatcord)
+
+[Online Example Reference 2](https://www.freecodecamp.org/news/simple-chat-application-in-node-js-using-express-mongoose-and-socket-io-ee62d94f5804/)
+
+[Online Example Reference 3](https://dev.to/rexeze/how-to-build-a-real-time-chat-app-with-nodejs-socketio-and-mongodb-2kho)
+
 
 
 
