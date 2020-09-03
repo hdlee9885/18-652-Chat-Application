@@ -18,7 +18,7 @@ To start the application:
 
 1. Clone the repo and in the terminal run ```npm install```
 2. In the terminal, run ```npm start```
-3. Then open up browser go to http://localhost:8000/home
+3. Then open up browser go to http://localhost:8000
 
 ### Built with
 
