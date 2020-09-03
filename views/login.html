@@ -143,11 +143,15 @@ button:hover {
                 success: function(data,status){ 
                     if(status == 'success'){ 
                         location.pathname = '/home';
+                    } else {
+                        alert("User name or password is incorrect!");
+                        location.pathname = '/login';
                     }
                 },
                 error: function(data,status){ 
                     if(status == 'error'){ 
                         console.log("Login error: ", status);
+                        alert("User name or password is incorrect!");
                         location.pathname = '/login';
                     }
                 }

@@ -60,9 +60,9 @@ socket.on("user_list",function(userList){ // retrieve user list
 	}
     var numOnline = $(".user-list").find("tr").length;
     if (numOnline == 1) {
-        $("#list-count").text("Currently, " + numOnline + " person is online.");
+        $("#list-count").text("Currently, " + numOnline + " user is online.");
     } else {
-        $("#list-count").text("Currently, " + numOnline + " people are online.");
+        $("#list-count").text("Currently, " + numOnline + " users are online.");
     }
 });
 

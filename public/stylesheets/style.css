@@ -41,7 +41,7 @@ a {
   color: black;
   text-align: center;
   opacity: 0.5;
-  /* background-color: lightgray; */
+  margin-right: 5%;
 }
 
 .message-name{
