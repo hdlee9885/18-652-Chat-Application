@@ -36,7 +36,7 @@ To start the application:
   - body-parser: parse the http request sent by client
   - socket.io: enables real-time and event based communication
 
-* Database: MongoDB with mongoose (a object data modeling library for MongoDB and Node.js)
+* Database: MongoDB with mongoose (an object data modeling library for MongoDB and Node.js)
 
 #### Database schema
 1. User credential information
