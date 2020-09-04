@@ -13,7 +13,6 @@ router.get('/login', function(req, res) {
   res.render('login', {title: 'User login'});
 });
 router.post('/login', function(req,res) {
-  //global.manipulate.getModel('user'); // get user model
   var username = req.body.uname; // get username
   var password = req.body.userpwd; // get user password
   user.findOne({name:username},function(error, userinfo){ // find user in database
@@ -34,7 +33,6 @@ router.post('/login', function(req,res) {
         req.session.user = userinfo; // session has current user
         userGoOnline(username);
         res.sendStatus(200);
-        //res.redirect("/home");
       }
     }
   });
@@ -82,12 +80,6 @@ router.post('/register',function(req,res){
             console.log(err);
             return;
           } else {
-            // user.save(function(error) {
-            //   console.log(user);
-            //   if(error) {
-            //     throw error;
-            //   }
-            // });
             console.log("User created!");
             req.session.error = 'User created successfully!';
             //res.redirect("/login");

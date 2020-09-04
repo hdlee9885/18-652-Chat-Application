@@ -88,7 +88,6 @@ app.use(function(err, req, res, next) {
 //   console.log("server is now on 3000");
 // })
 
-
 var server = http.createServer(app);
 var socket = socketIO.listen(server);
 
