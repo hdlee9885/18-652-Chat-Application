@@ -36,13 +36,13 @@ socket.on("user_send",function(name,message,time){ // show chat message
 socket.on("userIn",function(data){ 
 	var msg_list = $(".message-list");
 		msg_list.append( 
-		'<div class="message-container"><div class="message-content message-system">'+data+'</div></div>'
+		'<div class="message-container"><div class="message-system">'+data+'</div></div>'
 	);
 });
 socket.on("userOut",function(data){ 
 	var msg_list = $(".message-list");
 		msg_list.append( 
-		'<div class="message-container"><div class="message-content message-system">'+data+'</div></div>'
+		'<div class="message-container"><div class="message-system">'+data+'</div></div>'
 	);
 });
 socket.on("system",function(data){ 

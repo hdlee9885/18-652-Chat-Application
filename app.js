@@ -139,7 +139,7 @@ socket.on('connection', function(socket) {
         client.name = name;  // store client name
         clients.push(client);  // store client object in array
         console.log("client name: " + client.name); // print client on console
-      	socket.broadcast.emit("userIn","We have a new user joining in called" + client.name);
+      	socket.broadcast.emit("userIn","New user joining in: " + client.name);
     });
     socket.emit("system","Welcome new user!"); 
 
@@ -175,7 +175,7 @@ socket.on('connection', function(socket) {
             }
         }
         userGoOffline(name,socket);
-        socket.broadcast.emit('userOut',"Chatroom@: "+client.name+" left");
+        socket.broadcast.emit('userOut',"System Message: "+client.name+" left");
 		    console.log(client.name + ': disconnected');
     });
     
